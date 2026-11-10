@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta name="drift-version" content="drift-72a48f650f82">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ДРЕЙФ: тестовая сцена</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #07040f; overflow: hidden; }
+    canvas { display: block; }
+    #fps { position: fixed; top: 8px; left: 8px; padding: 4px 8px; font: 600 14px/1 ui-monospace, monospace;
+      color: #84cbcd; background: rgba(7, 4, 15, .7); border: 1px solid #d951ef; border-radius: 4px; }
+    #err { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; color: #fde467;
+      font: 16px/1.4 system-ui, sans-serif; text-align: center; }
+    #err[hidden], #fps[hidden] { display: none; }
+  </style>
+  <script type="module" crossorigin src="./assets/index-DHhCYJtn.js"></script>
+</head>
+<body>
+  <div id="fps" hidden>FPS …</div>
+  <div id="err" hidden></div>
+</body>
+</html>
