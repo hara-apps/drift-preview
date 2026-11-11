@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ДРЕЙФ: кадры этапа А</title>
+<title>ДРЕЙФ: кадры</title>
 <style>
   :root { color-scheme: dark; }
   body { margin: 0; background: #07090c; color: #d7dde4; font: 16px/1.5 system-ui, -apple-system, 'Segoe UI', sans-serif; }
@@ -15,6 +15,9 @@
   a.play { display: inline-block; padding: 10px 16px; border: 1px solid #84cbcd; border-radius: 6px; text-decoration: none; margin: 4px 10px 4px 0; }
   figure { margin: 34px 0; }
   figure img { display: block; width: 100%; height: auto; border-radius: 6px; background: #000; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; } .pair a { position: relative; display: block; }
+  .pair em { position: absolute; left: 8px; top: 8px; padding: 2px 8px; font: 600 12px ui-monospace, monospace; color: #fde467; background: rgba(4,8,12,.7); border-radius: 4px; }
+  @media (max-width: 900px) { .pair { grid-template-columns: 1fr; } }
   figcaption { padding: 10px 2px 0; }
   figcaption b { color: #fde467; font-weight: 600; }
   figcaption span { display: block; color: #9aa6b2; max-width: 80ch; }
@@ -26,76 +29,76 @@
 </head>
 <body>
 <header>
-  <h1>ДРЕЙФ · кадры этапа А</h1>
+  <h1>ДРЕЙФ · кадры: было и стало</h1>
   <p class="lead">Двенадцать кадров 1920x1080 с высоты глаз Хармы (1,2 м). Сняты на сервере без видеокарты (программный WebGL), поэтому скорость здесь не показана: пройдись сам по ссылке ниже.</p>
-  <a class="play" href="../?fps=1">Открыть сборку со счётчиком FPS</a>
-  <a class="play" href="../?fps=1&amp;mood=amber">То же в янтарном свете</a>
-  <p class="lead">В сборке: клик захватывает мышь, WASD ходить, Shift быстрее, M переключает свет (холодный / янтарный), U будит и усыпляет Узор.</p>
+  <a class="play" href="../?fps=1">Играть (со счётчиком)</a>
+  <a class="play" href="../?probe=1">Замерная страница: открыть, подождать 30 секунд, прислать скриншот</a>
+  <p class="lead">Ступень качества и масштаб игра подбирает сама; вручную: <code>?q=high</code>, <code>?q=medium</code>, <code>?q=lite</code>, <code>?scale=0.8</code>.</p>
 </header>
 <main>
 <figure id="k1">
-  <a href="01.jpg"><img src="01.jpg" width="1920" height="1080" loading="lazy" alt="шлюз: вход, люк на станцию"></a>
+  <div class="pair"><a href="before_01.jpg"><img src="before_01.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="01.jpg"><img src="01.jpg" width="1920" height="1080" loading="lazy" alt="шлюз: вход, люк на станцию"><em>стало</em></a></div>
   <figcaption><b>1. шлюз: вход, люк на станцию</b><span>Тесный шлюз, аварийный красный над люком, пар из стыка трубы. Справа скафандры людей: Харме они по плечо. Люк закрыт, на нём штурвал с тремя спицами.</span>
-  <small>draw calls 114 · треугольников 325587 · программ 26 · sha 6a166c3202be7c58</small></figcaption>
+  <small>draw calls 101 · треугольников 382259 · программ 27 · sha db058710349937eb</small></figcaption>
 </figure>
 <figure id="k2">
-  <a href="02.jpg"><img src="02.jpg" width="1920" height="1080" loading="lazy" alt="шлюз: внешний люк в инее"></a>
+  <div class="pair"><a href="before_02.jpg"><img src="before_02.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="02.jpg"><img src="02.jpg" width="1920" height="1080" loading="lazy" alt="шлюз: внешний люк в инее"><em>стало</em></a></div>
   <figcaption><b>2. шлюз: внешний люк в инее</b><span>Внешний люк. Иней идёт от него по стенам и полу. Тень перед Хармой её собственная: свет хвоста у неё за спиной.</span>
-  <small>draw calls 79 · треугольников 216117 · программ 27 · sha 96050e531a4466dd</small></figcaption>
+  <small>draw calls 69 · треугольников 255061 · программ 28 · sha 0cb2c8801e462692</small></figcaption>
 </figure>
 <figure id="k3">
-  <a href="03.jpg"><img src="03.jpg" width="1920" height="1080" loading="lazy" alt="Узор спящий: иней вблизи оказывается рисунком"></a>
+  <div class="pair"><a href="before_03.jpg"><img src="before_03.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="03.jpg"><img src="03.jpg" width="1920" height="1080" loading="lazy" alt="Узор спящий: иней вблизи оказывается рисунком"><em>стало</em></a></div>
   <figcaption><b>3. Узор спящий: иней вблизи оказывается рисунком</b><span>Тот же иней вблизи: треугольная решётка в трёх масштабах, отрезки включаются по правилу с периодом три. Издали сливается в иней.</span>
-  <small>draw calls 82 · треугольников 270249 · программ 27 · sha c64a0fbdd33f72e2</small></figcaption>
+  <small>draw calls 64 · треугольников 246905 · программ 28 · sha 17c70dc828c4c904</small></figcaption>
 </figure>
 <figure id="k4">
-  <a href="04.jpg"><img src="04.jpg" width="1920" height="1080" loading="lazy" alt="коридор кольца: холодный аварийный свет"></a>
+  <div class="pair"><a href="before_04.jpg"><img src="before_04.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="04.jpg"><img src="04.jpg" width="1920" height="1080" loading="lazy" alt="коридор кольца: холодный аварийный свет"><em>стало</em></a></div>
   <figcaption><b>4. коридор кольца: холодный аварийный свет</b><span>Коридор жилого кольца, холодное аварийное настроение. Пол уходит вверх: это кольцо, а не прямая. Слева окно, луч Солнца режется рамой на три.</span>
-  <small>draw calls 123 · треугольников 493347 · программ 27 · sha 21556cfe3a9c79a5</small></figcaption>
+  <small>draw calls 129 · треугольников 538339 · программ 31 · sha 5b3803aa5bf83631</small></figcaption>
 </figure>
 <figure id="k5">
-  <a href="05.jpg"><img src="05.jpg" width="1920" height="1080" loading="lazy" alt="коридор кольца: тёплый янтарный свет"></a>
-  <figcaption><b>5. коридор кольца: тёплый янтарный свет</b><span>Тот же кадр в тёплом янтарном настроении. Выбери одно из двух.</span>
-  <small>draw calls 123 · треугольников 493347 · программ 27 · sha 7edb9ef5727a5fd1</small></figcaption>
+  <div class="pair"><a href="before_05.jpg"><img src="before_05.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="05.jpg"><img src="05.jpg" width="1920" height="1080" loading="lazy" alt="коридор: тёплый островок, где жил экипаж"><em>стало</em></a></div>
+  <figcaption><b>5. коридор: тёплый островок, где жил экипаж</b><span>Коридор холодный, а здесь тёплый островок: фонарь экипажа ещё горит, постели, фотографии. (Раньше на этом месте был тот же коридор в янтарном свете; теперь свет у каждого помещения свой.)</span>
+  <small>draw calls 76 · треугольников 344933 · программ 31 · sha 016372622fc7ce44</small></figcaption>
 </figure>
 <figure id="k6">
-  <a href="06.jpg"><img src="06.jpg" width="1920" height="1080" loading="lazy" alt="коридор: баррикада и вещи экипажа"></a>
-  <figcaption><b>6. коридор: баррикада и вещи экипажа</b><span>Здесь жили: постели у стены, фонарь ещё горит, счёт дней мелом. Вдали баррикада, заваренная с этой стороны.</span>
-  <small>draw calls 88 · треугольников 325599 · программ 27 · sha f0030b6e976e3a52</small></figcaption>
+  <div class="pair"><a href="before_06.jpg"><img src="before_06.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="06.jpg"><img src="06.jpg" width="1920" height="1080" loading="lazy" alt="коридор: баррикада и вещи экипажа"><em>стало</em></a></div>
+  <figcaption><b>6. коридор: баррикада и вещи экипажа</b><span>Здесь жили: постели у стены, счёт дней мелом. Вдали баррикада, заваренная с этой стороны.</span>
+  <small>draw calls 76 · треугольников 344933 · программ 31 · sha 4db04d727f70ba70</small></figcaption>
 </figure>
 <figure id="k7">
-  <a href="07.jpg"><img src="07.jpg" width="1920" height="1080" loading="lazy" alt="отражение в стекле: окно, астероид, Солнце"></a>
-  <figcaption><b>7. отражение в стекле: окно, астероид, Солнце</b><span>Окно. В стекле отражение Хармы в шлеме: разные глаза, уши в кожухах, ошейник, перо, хвост-пламя. За стеклом астероид и маленькое далёкое Солнце.</span>
-  <small>draw calls 83 · треугольников 309565 · программ 32 · sha 87666a1197963987</small></figcaption>
+  <div class="pair"><a href="before_07.jpg"><img src="before_07.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="07.jpg"><img src="07.jpg" width="1920" height="1080" loading="lazy" alt="отражение в стекле: окно, астероид, Солнце"><em>стало</em></a></div>
+  <figcaption><b>7. отражение в стекле: окно, астероид, Солнце</b><span>Окно с рамой. В стекле отражается коридор за спиной Хармы и она сама в скафандре; за стеклом астероид и маленькое далёкое Солнце.</span>
+  <small>draw calls 98 · треугольников 450229 · программ 31 · sha bace891cc660b40c</small></figcaption>
 </figure>
 <figure id="k8">
-  <a href="08.jpg"><img src="08.jpg" width="1920" height="1080" loading="lazy" alt="отсек маяка А: общий вид от двери"></a>
-  <figcaption><b>8. отсек маяка А: общий вид от двери</b><span>Отсек маяка А от двери. Маяк собран из бурового привода, лабораторного бака и медных витков, три опоры, три штыря.</span>
-  <small>draw calls 91 · треугольников 277995 · программ 32 · sha 4fe9493f2c6ae336</small></figcaption>
+  <div class="pair"><a href="before_08.jpg"><img src="before_08.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="08.jpg"><img src="08.jpg" width="1920" height="1080" loading="lazy" alt="отсек маяка А: общий вид от двери"><em>стало</em></a></div>
+  <figcaption><b>8. отсек маяка А: общий вид от двери</b><span>Отсек маяка А от двери: янтарный рабочий свет ламп на треногах. Маяк собран из бурового привода, лабораторного бака и медных витков, три опоры, три штыря.</span>
+  <small>draw calls 77 · треугольников 297213 · программ 31 · sha aad50473bb350cc0</small></figcaption>
 </figure>
 <figure id="k9">
-  <a href="09.jpg"><img src="09.jpg" width="1920" height="1080" loading="lazy" alt="маяк А: прибор и кабели"></a>
+  <div class="pair"><a href="before_09.jpg"><img src="before_09.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="09.jpg"><img src="09.jpg" width="1920" height="1080" loading="lazy" alt="маяк А: прибор и кабели"><em>стало</em></a></div>
   <figcaption><b>9. маяк А: прибор и кабели</b><span>Маяк ближе: пульт с осциллографом (три всплеска на период), кабели по полу к трём щиткам, лестница, кран-балка.</span>
-  <small>draw calls 90 · треугольников 278219 · программ 32 · sha 0dc13af552b5c122</small></figcaption>
+  <small>draw calls 76 · треугольников 297437 · программ 31 · sha a5cb9b4178e4aac8</small></figcaption>
 </figure>
 <figure id="k10">
-  <a href="10.jpg"><img src="10.jpg" width="1920" height="1080" loading="lazy" alt="маяк А: надписи экипажа и тень с ушами"></a>
-  <figcaption><b>10. маяк А: надписи экипажа и тень с ушами</b><span>Надпись экипажа на стене и тень Хармы с ушами под ней.</span>
-  <small>draw calls 82 · треугольников 276739 · программ 32 · sha 9e9b59d8b981256b</small></figcaption>
+  <div class="pair"><a href="before_10.jpg"><img src="before_10.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="10.jpg"><img src="10.jpg" width="1920" height="1080" loading="lazy" alt="маяк А: надписи экипажа и тень с ушами"><em>стало</em></a></div>
+  <figcaption><b>10. маяк А: надписи экипажа и тень с ушами</b><span>Надпись экипажа на стене и тень Хармы с ушами под ней. Тень даёт упавшая лампа экипажа, а не хвост: хвост теперь мягкий свет без тени.</span>
+  <small>draw calls 68 · треугольников 295921 · программ 31 · sha 768600d299f1d0a6</small></figcaption>
 </figure>
 <figure id="k11">
-  <a href="11.jpg"><img src="11.jpg" width="1920" height="1080" loading="lazy" alt="лапы с инструментом и перо-подвеска"></a>
+  <div class="pair"><a href="before_11.jpg"><img src="before_11.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="11.jpg"><img src="11.jpg" width="1920" height="1080" loading="lazy" alt="лапы с инструментом и перо-подвеска"><em>стало</em></a></div>
   <figcaption><b>11. лапы с инструментом и перо-подвеска</b><span>Лапы в перчатках скафандра с инструментом (захват и резак, три когтя вокруг линзы). Внизу кадра перо-подвеска на груди.</span>
-  <small>draw calls 123 · треугольников 544759 · программ 32 · sha f0b9b731220d071b</small></figcaption>
+  <small>draw calls 103 · треугольников 457269 · программ 31 · sha 7bbaf11952758022</small></figcaption>
 </figure>
 <figure id="k12">
-  <a href="12.jpg"><img src="12.jpg" width="1920" height="1080" loading="lazy" alt="Узор проснувшийся"></a>
-  <figcaption><b>12. Узор проснувшийся</b><span>Узор проснулся: свет станции сел, по жилам решётки бегут волны, рисунок медленно поворачивается. Хвост Хармы уходит в фиолетовый.</span>
-  <small>draw calls 82 · треугольников 276739 · программ 32 · sha e99ba2e7e1407af5</small></figcaption>
+  <div class="pair"><a href="before_12.jpg"><img src="before_12.jpg" width="1920" height="1080" loading="lazy" alt="было"><em>было</em></a><a href="12.jpg"><img src="12.jpg" width="1920" height="1080" loading="lazy" alt="Узор проснувшийся"><em>стало</em></a></div>
+  <figcaption><b>12. Узор проснувшийся</b><span>Узор проснулся: свет станции сел в бирюзу и фиолетовый. Рисунок теперь растёт жилами: густо вдоль них, пусто между ними, в узлах кольца.</span>
+  <small>draw calls 69 · треугольников 295981 · программ 31 · sha 066a3a77653b02e2</small></figcaption>
 </figure>
 <h2>Счётчики рендера</h2>
-<p class="lead">Худший кадр: draw calls 123 из 250, треугольников 544759 из 1 500 000, шейдерных программ 32 из 40. Считаются все проходы кадра: тени, отражение, сцена, постобработка.</p>
+<p class="lead">Худший кадр: draw calls 129 из 250, треугольников 538339 из 1 500 000, шейдерных программ 31 из 40. Считаются все проходы кадра: тени, отражение, сцена, постобработка.</p>
 </main>
-<footer>Собрано 2026-11-11 00:34 UTC · seed 1</footer>
+<footer>Собрано 2026-11-11 01:58 UTC · seed 1</footer>
 </body>
 </html>
