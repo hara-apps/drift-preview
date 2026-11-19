@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ПУБЛИЧНАЯ ТАБЛИЦА (drift.harma.cc/leaderboards). Политика та же, что у страницы игры (index.html): свои файлы,
+       ящик rtc.harma.cc и петля 127.0.0.1 для приборов. Английская копия en/leaderboards/index.html делается сборкой
+       (vite.config.js, drift-en-page). Вход: src/board.js, рисует src/shell/board.js, сторож tools/board_check.mjs. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; connect-src 'self' https://rtc.harma.cc http://127.0.0.1:*; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>DRIFT. Veresk-9 · Contractors' Table</title>
+  <meta name="description" content="The funeral bureau's Contractors' Table: who closed the Veresk-9 case, and how fast. One table for both versions of the game.">
+  <meta name="robots" content="noindex">
+  <style>
+    :root {
+      --bg: #020407; --card: rgb(8,12,18); --row: #0c141c; --line: #16212b; --edge: #2b3a48;
+      --text: #dfe6ee; --dim: #8f9aa6; --faint: #66727e; --teal: #84cbcd; --amber: #c38d3e; --gold: #fde467;
+      --mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+      --sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color-scheme: dark;
+    }
+    html, body { margin: 0; background: var(--bg); color: var(--text); }
+    body { font: 15px/1.45 var(--sans); min-height: 100vh; }
+    .bd { box-sizing: border-box; width: min(64em, calc(100vw - 32px)); margin: 24px auto 40px; padding: 1.3em 1.5em 1.4em;
+      background: var(--card); border: 1px solid var(--edge); border-top: 2px solid var(--amber); border-radius: 6px;
+      font-variant-numeric: tabular-nums; }
+    .bd-top { display: flex; justify-content: space-between; align-items: center; gap: 1em; }
+    .bd-kicker { font: 600 .72em var(--mono); letter-spacing: .16em; color: var(--teal); min-width: 0; }
+    .bd-lang { display: flex; gap: .4em; flex: none; }
+    .bd-lang button { cursor: pointer; background: #05090d; border: 1px solid var(--edge); border-radius: 5px; color: var(--text);
+      padding: .35em .8em; min-height: 36px; font: 600 .85em var(--mono); letter-spacing: .08em; }
+    .bd-lang button:hover:not(:disabled) { border-color: var(--teal); }
+    .bd-lang button:disabled { cursor: default; border-color: var(--amber); color: var(--gold); }
+    .bd h1 { margin: .35em 0 0; font: 700 1.9em/1.15 var(--mono); letter-spacing: .08em; color: #e8eef5; }
+    .bd-sub { margin: .35em 0 0; color: var(--dim); }
+    .bd-upd { margin: .3em 0 0; font: .85em var(--mono); color: var(--faint); }
+    .bd-status { margin: 1.2em 0 .2em; padding: .8em 1em; background: var(--row); border-left: 3px solid var(--teal); border-radius: 4px; color: #b9c3cd; }
+    .bd-status.down { border-left-color: #ff5a3c; }
+    .bd-body { display: grid; gap: 1.3em; margin-top: 1.1em; }
+    .bd-tab { width: 100%; border-collapse: collapse; font-size: .95em; }
+    .bd-tab th { padding: .3em .45em; text-align: left; font: 600 .72em var(--mono); letter-spacing: .12em; color: var(--faint); text-transform: uppercase; border-bottom: 1px solid var(--edge); white-space: nowrap; }
+    .bd-tab td { padding: .42em .45em; border-bottom: 1px solid var(--line); vertical-align: baseline; }
+    .bd-tab th.c-place, .bd-tab th.c-n { text-align: right; }
+    .bd-tab td.c-place { width: 2.4em; font: 700 1em var(--mono); color: var(--dim); text-align: right; }
+    .bd-tab td.c-name { overflow-wrap: anywhere; color: var(--text); font-weight: 600; }
+    .bd-tab td.c-time, .bd-tab td.c-n, .bd-tab td.c-lang, .bd-tab td.c-date { font-family: var(--mono); white-space: nowrap; color: #b9c3cd; }
+    .bd-tab td.c-time { color: var(--gold); }
+    .bd-tab td.c-n { text-align: right; }
+    .bd-tab td.c-rank { color: var(--teal); white-space: nowrap; }
+    .bd-tab td.c-date, .bd-tab td.c-lang { color: var(--dim); font-size: .9em; }
+    .bd-tab tr.top1 td.c-place { color: var(--gold); } .bd-tab tr.top2 td.c-place, .bd-tab tr.top3 td.c-place { color: var(--amber); }
+    .bd-sec h2 { margin: 0 0 .45em; font: 600 .78em var(--mono); letter-spacing: .16em; color: var(--faint); text-transform: uppercase; }
+    .bd-sec ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .3em; }
+    .bd-sec li { padding: .45em .8em; background: var(--row); border-radius: 4px; font: .95em var(--mono); color: #b9c3cd; overflow-wrap: anywhere; }
+    .bd-adit { display: flex; flex-wrap: wrap; gap: .2em 1em; }
+    .bd-adit b { color: var(--teal); font-weight: 600; } .bd-adit .nm { color: var(--text); } .bd-adit .dt { color: var(--dim); }
+    .bd-foot { margin-top: 1.4em; }
+    .bd-play { display: inline-block; padding: .55em 1.2em; border: 1px solid var(--amber); border-radius: 5px; color: var(--gold); text-decoration: none; }
+    .bd-play:hover { border-color: var(--gold); }
+    /* телефон: строка таблицы - карточка в две линии (место, имя, время; ниже находки, слова, звание, язык, дата) */
+    @media (max-width: 640px) {
+      .bd { width: auto; margin: 0; border-radius: 0; border-left: 0; border-right: 0; padding: 1em 16px 1.2em; min-height: 100vh; }
+      .bd h1 { font-size: 1.45em; }
+      .bd-tab, .bd-tab tbody { display: block; }
+      .bd-tab thead { display: none; }
+      /* место стоит слева от всех линий строки, остальное переносится под имя */
+      .bd-tab tr { position: relative; display: flex; flex-wrap: wrap; align-items: baseline; gap: .15em .7em; padding: .55em 0 .55em 2.7em; border-bottom: 1px solid var(--line); }
+      .bd-tab td { display: block; padding: 0; border: 0; }
+      .bd-tab td.c-place { position: absolute; left: 0; width: 2em; }
+      /* имя занимает всё до времени: остальные клетки уходят на вторую линию */
+      .bd-tab td.c-name { flex: 1 1 calc(100% - 5.8em); min-width: 0; }
+      .bd-tab td.c-time { flex: none; min-width: 4.8em; text-align: right; }
+      .bd-tab td.c-n, .bd-tab td.c-rank, .bd-tab td.c-lang, .bd-tab td.c-date { font-size: .8em; color: var(--dim); }
+      .bd-tab td.c-n::before { content: attr(data-l) ' '; color: var(--faint); }
+      .bd-tab td.c-rank { color: var(--teal); }
+    }
+  </style>
+  <script type="module" crossorigin src="../assets/leaderboards-CTMhlHXu.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/operator-BAO7GIi5.js">
+</head>
+<body>
+  <main id="board" class="bd">
+    <noscript>DRIFT. Veresk-9 · Contractors' Table · JavaScript</noscript>
+  </main>
+</body>
+</html>
