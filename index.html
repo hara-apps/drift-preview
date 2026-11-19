@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <meta name="drift-version" content="drift-25d2290129ad">
+  <meta name="drift-version" content="drift-6aa17eeac58d">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- ПОЛИТИКА СТРАНИЦЫ (ТЗ Ren 15.11, п.2.3). Скрипты: свои файлы и один файл Telegram для Mini App
@@ -11,7 +11,7 @@
        проверка в chromium и webkit: tools/csp_check.mjs. frame-ancestors в метатеге не работает. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://telegram.org/js/telegram-web-app.js; connect-src 'self' https://rtc.harma.cc http://127.0.0.1:*; img-src 'self' data: blob:; media-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
   <title>ДРЕЙФ. Вереск-9 · История Хармы</title>
-  <!-- карточка ссылки для Telegram и X: строки подставляет сборка из src/strings.js (vite.config.js) -->
+  <!-- карточка ссылки для Telegram и X: строки подставляет сборка из src/episodes/veresk9/strings.js (vite.config.js) -->
   <meta name="description" content="Мёртвая станция, три маяка и контракт похоронной конторы. Игра в браузере, от первого лица. История Хармы.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DRIFT: A Harma Story">
@@ -36,11 +36,11 @@
       color: #cfe2ff; background: rgba(4, 8, 12, .55); border-radius: 4px; pointer-events: none; white-space: nowrap; }
     #err[hidden], #fps[hidden], #hint[hidden] { display: none; }
   </style>
-  <script type="module" crossorigin src="./assets/index-BIYWm-VH.js"></script>
+  <script type="module" crossorigin src="./assets/index-BM4QJ5eI.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/operator-BAO7GIi5.js">
 </head>
 <body>
   <div id="fps" hidden>FPS …</div>
   <div id="err" hidden></div>
-  <div id="hint" hidden>Клик: захват мыши · WASD: ходить · Shift: быстрее · U: Узор спит / проснулся</div>
 </body>
 </html>
