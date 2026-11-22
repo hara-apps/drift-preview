@@ -9,7 +9,7 @@
        петля 127.0.0.1 (приборы на стенде ведут канал в локальный ящик ?api=; до чужого сервера по
        петле не дойти). Стили inline разрешены: их пишет сама игра (innerHTML панелей). Сторож и
        проверка в chromium и webkit: tools/csp_check.mjs. frame-ancestors в метатеге не работает. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://telegram.org/js/telegram-web-app.js; connect-src 'self' https://rtc.harma.cc http://127.0.0.1:*; img-src 'self' data: blob:; media-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://telegram.org/js/telegram-web-app.js; connect-src 'self' https://rtc.harma.cc https://net.harma.cc wss://net.harma.cc http://127.0.0.1:* ws://127.0.0.1:*; img-src 'self' data: blob:; media-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; worker-src 'self' blob:; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
   <title>ДРЕЙФ. Вереск-9 · История Хармы</title>
   <!-- карточка ссылки для Telegram и X: строки подставляет сборка из src/episodes/veresk9/strings.js (vite.config.js) -->
   <meta name="description" content="Мёртвая станция, три маяка и контракт похоронной конторы. Игра в браузере, от первого лица. История Хармы.">
@@ -40,8 +40,8 @@
       color: #cfe2ff; background: rgba(4, 8, 12, .55); border-radius: 4px; pointer-events: none; white-space: nowrap; }
     #err[hidden], #fps[hidden], #hint[hidden] { display: none; }
   </style>
-  <script type="module" crossorigin src="./assets/index-9kBHYJlN.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/operator-BT6sqtxX.js">
+  <script type="module" crossorigin src="./assets/index-PWYlS2d0.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/operator-C_iDMLgn.js">
   <link rel="manifest" href="ru/manifest.webmanifest">
   <link rel="apple-touch-icon" href="icon-180.png">
   <meta name="theme-color" content="#000000">
